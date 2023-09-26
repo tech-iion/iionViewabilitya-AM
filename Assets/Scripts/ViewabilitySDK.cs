@@ -71,6 +71,7 @@ public class ViewabilitySDK : MonoBehaviour
             if (IsElementInViewport(AdHolder.transform.position))
             {
                 Adinview = true;
+                passiveattention();
                 if(CalculateADangle(AdHolder))
                 {
                     if(VisibilityChecker.IsObjectVisible(AdHolder,mainCamera))
@@ -101,7 +102,7 @@ public class ViewabilitySDK : MonoBehaviour
                     ActiveTimeinview.Add(Time.time - EntryTimesa[AdHolder]);
                     EntryTimesa.Clear();
                 }
-
+                passiveattention();
             }
         }
         else if(Adloader.Adloaded && UseViewabilityPolling && !pollingstarted)
