@@ -32,7 +32,7 @@ public static class VisibilityChecker
         bool isCompletelyVisible = IsObjectCompletelyVisible(objectBounds, camera);
         bool isObstructed = IsObjectObstructed(objectBounds, camera , targetObject);
 
-        LogDebugInfo(isCompletelyVisible, isObstructed);
+        //LogDebugInfo(isCompletelyVisible, isObstructed);
 
         return isCompletelyVisible && !isObstructed;
     }
@@ -51,11 +51,11 @@ public static class VisibilityChecker
         {
             if (hit.collider.gameObject != targetObject)
             {
-                Renderer renderer = hit.collider.GetComponent<Renderer>();
-                if (renderer != null && IsBoundsOverlap(renderer.bounds, bounds))
-                {
+                //Renderer renderer = hit.collider.GetComponent<Renderer>();
+                //if (renderer != null && IsBoundsOverlap(renderer.bounds, bounds))
+                //{
                     return true;
-                }
+               // }
             }
         }
 

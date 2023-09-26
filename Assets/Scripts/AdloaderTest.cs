@@ -9,13 +9,16 @@ public class AdloaderTest : MonoBehaviour
 
     public Sprite iionad;
 
-    Cooloftimer cooloftimer;
+    [HideInInspector]
+    public bool Adloaded = false;
+
+    ViewabilitySDK cooloftimer;
 
     [ContextMenu("LoadtheAD")]
     public void LoadAD()
     {
         Debug.Log("Checking the Cool Of timer ....");
-        cooloftimer = FindObjectOfType<Cooloftimer>();
+        cooloftimer = FindObjectOfType<ViewabilitySDK>();
         if(!cooloftimer.timeractive)
         {
             Debug.Log("Loading the Ad .....");
@@ -23,7 +26,8 @@ public class AdloaderTest : MonoBehaviour
             Debug.Log("Ad Loaded");
             PixelRequiredcheck pixelcheck = new PixelRequiredcheck();
             pixelcheck.Pixelcheck(true);
-            cooloftimer.Adloaded = true;
+            //cooloftimer.Adloaded = true;
+            Adloaded = true;
             cooloftimer.Starttimer();
 
         }

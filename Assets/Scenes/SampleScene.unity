@@ -213,8 +213,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5086083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.59}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 76.6}
+  m_LocalScale: {x: 25.424364, y: 25.424364, z: 25.424364}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -491,17 +491,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140957407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f906ff8b67251f42a343a005005827c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseViewabilityPolling: 0
   timeractive: 0
   AdHolder: {fileID: 1564780228}
-  Adloaded: 0
   mainCamera: {fileID: 963194227}
-  Adtimecounter: 0
-  Timeinview: []
 --- !u!4 &1140957409
 Transform:
   m_ObjectHideFlags: 0
@@ -524,12 +522,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140957407}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 946fa78e13e372f48b3a4d90c4318aad, type: 3}
+  m_Script: {fileID: 11500000, guid: 571c44dd915d9534bb8a68fc25944722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 963194227}
+  AdHolder: {fileID: 1564780228}
+  Timeinview: []
 --- !u!1 &1564780228
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 1564780229}
   - component: {fileID: 1564780231}
   - component: {fileID: 1564780230}
+  - component: {fileID: 1564780232}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -606,6 +607,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564780228}
   m_CullTransparentMesh: 1
+--- !u!65 &1564780232
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564780228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 199.89798, y: 100.4769, z: 1.7313538}
+  m_Center: {x: 0.084350586, y: 0.23249817, z: 0.5582428}
 --- !u!1 &1573421967
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,3 +736,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Adholder: {fileID: 1564780230}
   iionad: {fileID: 21300000, guid: 5fb2343f908da784f834535347588404, type: 3}
+  Adloaded: 0
