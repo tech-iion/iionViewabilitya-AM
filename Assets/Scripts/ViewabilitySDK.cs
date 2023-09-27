@@ -84,12 +84,14 @@ public class ViewabilitySDK : MonoBehaviour
                     }
                     else
                     {
+                        activeattention();
                         Debug.LogWarning("There is an object in covering the AD");
                     }
                     
                 }
                 else if(!CalculateADangle(AdHolder))
                 {
+                    activeattention();
                     Debug.LogWarning("Ad Angle is more than 55 Degrees");
                 }
                 
@@ -97,11 +99,12 @@ public class ViewabilitySDK : MonoBehaviour
             else if (!IsElementInViewport(AdHolder.transform.position))
             {
                 Adinview = false;
-                if (EntryTimesa.ContainsKey(AdHolder))
-                {
-                    ActiveTimeinview.Add(Time.time - EntryTimesa[AdHolder]);
-                    EntryTimesa.Clear();
-                }
+                //if (EntryTimesa.ContainsKey(AdHolder))
+                //{
+                //    ActiveTimeinview.Add(Time.time - EntryTimesa[AdHolder]);
+                //    EntryTimesa.Clear();
+                //}
+                activeattention();
                 passiveattention();
             }
         }
@@ -113,21 +116,30 @@ public class ViewabilitySDK : MonoBehaviour
        
     }
 
+    void activeattention()
+    {
+        if (EntryTimesa.ContainsKey(AdHolder))
+        {
+            ActiveTimeinview.Add(Time.time - EntryTimesa[AdHolder]);
+            EntryTimesa.Clear();
+        }
+    }
+
     void passiveattention()
     {
         if(Adinview)
         {
             if (!EntryTimesp.ContainsKey(AdHolder))
             {
-                EntryTimesa[AdHolder] = Time.time;
-                Debug.Log(EntryTimesa[AdHolder]);
+                EntryTimesp[AdHolder] = Time.time;
+                Debug.Log(EntryTimesp[AdHolder]);
             }
         }
         else if(!Adinview)
         {
             if (EntryTimesp.ContainsKey(AdHolder))
             {
-                PassiveTimeinview.Add(Time.time - EntryTimesa[AdHolder]);
+                PassiveTimeinview.Add(Time.time - EntryTimesp[AdHolder]);
                 EntryTimesp.Clear();
             }
         }
